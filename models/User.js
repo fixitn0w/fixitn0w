@@ -11,19 +11,17 @@ lastname:String,
 },
 profilePhoto:String,
 bio:String,
-    address:{
-          city:String,
-          street:String,
-          postalCode:Number,
-          coord:[Number]
-        },
+city:String,
+street:String,
+postalCode:Number,
+coord:[Number],
     role:{
           type:String,
           enum:["CLIENT", "WORKER"],
           default:"CLIENT"
         }
 },
-,{
+{
     timestamps:{
           createdAt:"created_at",
           updatedAt:"updated_at"
