@@ -5,11 +5,14 @@ const PassportLocalMongoose = require("passport-local-mongoose");
 const userSchema = new Schema({
 name:String,
 lastname:String,
-    email:{
-          type:String,
-          required:true
+username:{
+      type:String,
+      required:true
 },
-profilePhoto:String,
+profilePhoto:{
+  type:String,
+  default:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/1024px-Missing_avatar.svg.png"
+},
 bio:String,
 city:String,
 street:String,
@@ -28,6 +31,5 @@ coord:[Number],
         }
 });
 
-
-userSchema.plugin(PassportLocalMongoose, {nameField:"email"})
+userSchema.plugin(PassportLocalMongoose, {nameField:"username"})
 module.exports = mongoose.model('User', userSchema)
