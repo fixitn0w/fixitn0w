@@ -1,30 +1,30 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; 
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: #b3b3b3;
-  background-image: url('../images/background image.png')
-
-}
+  background-image: url("../images/background image.png"); }
 
 a {
   color: #00B7FF; }
 
 .footer {
-  background: black;
-  color: white;
-}
+  background-color: black;
+  color: white; }
+
+footer {
+  background-color: black;
+  color: white; }
 
 .formulario {
   padding: 120px;
   margin-right: 80px;
-  margin-left: -50px;
-}
+  margin-left: -50px; }
 
 .cuadro {
-  background: #a6a6a6;
-}
+  background: #a6a6a6; }
 
 .button {
-  align-items: center;
-}
+  align-items: center; }
+
+/*# sourceMappingURL=style.css.map */
 
 /*# sourceMappingURL=style.css.map */
