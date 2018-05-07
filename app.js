@@ -8,8 +8,11 @@ const hbs          = require('hbs');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
-const passport = require("passport");
 const session = require("express-session");
+const flash      = require("connect-flash");
+const passport = require("./helpers/passport");
+const MongoStore = require("connect-mongo")(session);
+
 
 
 mongoose.Promise = Promise;
@@ -27,10 +30,12 @@ const app = express();
 
 //session
 app.use(session({
-  secret: "bliss",
-  resave: false,
+  secret: "secret",
+  resave: true,
   saveUninitialized: true
 }));
+app.use(flash());
+
 //initialize passport
 app.use(passport.initialize());
 app.use(passport.session());
@@ -52,7 +57,7 @@ app.use(require('node-sass-middleware')({
   dest: path.join(__dirname, 'public'),
   sourceMap: true
 }));
-      
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
