@@ -28,7 +28,7 @@ function isNotAuth(req,res,next){
     }
     return res.redirect('/login');
 }
-
+//probando
 ///////////////////////////////////
 ///////  RUTAS PARA Profile  ///////
 ///////////////////////////////////

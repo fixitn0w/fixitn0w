@@ -1,8 +1,48 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; 
+  background: #b3b3b3;
+  background-image: url('../images/background image.png');
 }
 
 a {
-  color: #00B7FF;
+  color: #00B7FF; 
 }
+
+.footer {
+  background-color: black;
+  color: white;
+}
+
+footer {
+  background-color: black;
+  color: white;
+}
+
+.formulario {
+  padding: 120px;
+  margin-right: 80px;
+  margin-left: -50px;
+}
+
+.cuadro {
+  background: #a6a6a6;
+}
+
+.button {
+  align-items: center;
+}
+
+.cuadro2 {
+  background-image: url('../images/banner_back.jpg');
+  background-position: center; 
+}
+
+.subtitulo {
+  color: white;
+}
+
+.secciones li a {
+  color: white;
+}
+
+/*# sourceMappingURL=style.css.map */
