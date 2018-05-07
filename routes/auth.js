@@ -9,6 +9,11 @@ const multer = require("multer");
 const uploads = multer({dest: './public/uploads'});
 const ensureLogin = require("connect-ensure-login");
 
+const Project = require('../models/Project');
+
+///////////////////////////////////
+///////  Autentificacion de sesión  ///////
+///////////////////////////////////
 
 function isAuthenticated(req, res, next){
   if(req.isAuthenticated()){
@@ -23,6 +28,12 @@ function isNotAuth(req,res,next){
     }
     return res.redirect('/login');
 }
+
+
+///////////////////////////////////
+///////  RUTAS PARA Profile  ///////
+///////////////////////////////////
+
 
 router.get('/profile', isNotAuth, (req,res, next)=>{
     User.findById(req.user._id)
