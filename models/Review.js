@@ -15,15 +15,13 @@ const reviewSchema = new Schema ({
   },
   project:{
     type:Schema.Types.ObjectId,
-    ref:"Prject"
-  },
-  {
-    timestamps:{
-      createdAt:"created_at",
-      updatedAt:"updated_at"
-    }
-  }
-})
+    ref:"Project"
+  }}, {
+  timestamps:{
+            createdAt:"created_at",
+            updatedAt:"updated_at"
+          }  }
+)
 
 
 module.exports = mongoose.model('Review', reviewSchema)

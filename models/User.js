@@ -9,10 +9,7 @@ username:{
       type:String,
       required:true
 },
-profilePhoto:{
-  type:String,
-  default:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Missing_avatar.svg/1024px-Missing_avatar.svg.png"
-},
+profilePhoto:String,
 bio:String,
 city:String,
 street:String,

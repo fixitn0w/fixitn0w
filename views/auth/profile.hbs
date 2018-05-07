@@ -1,6 +1,35 @@
-<h1>Aqui va tu profile {{name}}</h1>
+ <h1>Aqui va tu profile {{name}}</h1>
+
+{{#if profilePhoto}}
+<img src="{{profilePhoto}}" alt="" id="profilePhoto">
+{{else}}
+<h2>{{name}}</h2>
+<img id="profilePhoto" src="https://media.forgecdn.net/avatars/124/768/636424778749237239.jpeg" alt="avatar"/>
+{{/if}}
+
+<form class="avatar" action="/profile" method="post" enctype="multipart/form-data">
+<input type="file" name="profilePhoto" id="file" hidden/>
+<input type="submit" value="Guardar">
+</form>
+
+
 
 
 <form action="/logout" method="get">
   <input type="submit" name="Logout" value="logout">
 </form>
+
+
+
+<script>
+    document.querySelector('#profilePhoto')
+        .addEventListener('click', ()=>{
+            document.querySelector('#file').click();
+        })
+</script>
+
+<style>
+#profilePhoto{
+  width:200px;
+  height: :200px;
+}

@@ -29,7 +29,6 @@ function isNotAuth(req,res,next){
     return res.redirect('/login');
 }
 
-
 ///////////////////////////////////
 ///////  RUTAS PARA Profile  ///////
 ///////////////////////////////////
@@ -41,6 +40,18 @@ router.get('/profile', isNotAuth, (req,res, next)=>{
     res.render('auth/profile', user);
     })
     .catch(e=>next(e))
+  })
+
+
+
+  router.post('/profile', uploads.single('profilePhoto'),(req, res, next)=>{
+    req.body.profilePhoto = "/uploads/" + req.file.filename;
+    User.findByIdAndUpdate(req.user._id, req.body)
+    .then(()=>{
+      req.user.message = "foto actualizada";
+      res.render('auth/profile', req.user);
+    })
+    .catch(e=>next(e));
   })
 
 ///////////////////////////////////
