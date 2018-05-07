@@ -15,7 +15,10 @@
 </form>
 <br><br><br>-->
 
-<div class="container cuadro">
+<div class="container">
+
+        <article class="tile is-child notification">
+
 
 <section class="formulario">
 <form action="/signup" method="post">
@@ -92,7 +95,10 @@
         <div class="field-body">
             <div class="field">
                 <div class="control">
-                    <input class="input" type="text" name="city">
+                    <p class="control has-icons-left">
+                        <input class="input" type="text" name="city" placeholder="Name of your city">
+                        <span class="icon is-small is-left"><i class="fas fa-globe"></i></span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -105,7 +111,10 @@
         <div class="field-body">
             <div class="field">
                 <div class="control">
-                    <input class="input" type="text" name="street">
+                    <p class="control has-icons-left">
+                        <input class="input" type="text" name="street" placeholder="Street Name & Number">
+                        <span class="icon is-small is-left"><i class="far fa-address-card"></i></span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -118,7 +127,10 @@
         <div class="field-body">
             <div class="field">
                 <div class="control">
-                    <input class="input" type="text" name="postalcode">
+                    <p class="control has-icons-left">
+                        <input class="input" type="text" name="postalcode" placeholder="Local Postal Code">
+                        <span class="icon is-small is-left"><i class="fas fa-location-arrow"></i></span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -127,5 +139,5 @@
             <button class="button is-success" type="submit">Save changes</button>
 
 </form>
-</section>
+</section></article>
 </div>
