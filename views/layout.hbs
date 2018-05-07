@@ -2,12 +2,55 @@
 <html>
   <head>
     <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link rel='stylesheet' href='stylesheets/style.css' />
   </head>
-  <body>
+<body>
+<section class="hero is-dark is-medium">
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/">
+            <img src="images/fixit logo.png" alt="Logo">
+          </a>
+          <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroA" class="navbar-menu">
+          <div class="navbar-end">
+            <a class="navbar-item is-active" href="/login">
+              login
+            </a>
+             <a class="navbar-item" href="/signup">
+              Sign Up
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</section>
 
     {{{body}}}
 
+<section class="test">
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        <strong>FIXIT-NOW</strong> by <a href="https://jgthms.com">Rene & Alex</a>. The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. Done in Ironhack.
+      </p>
+    </div>
+  </div>
+</footer>
+</section>
     <script src='/javascripts/script.js'></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
   </body>
 </html>
