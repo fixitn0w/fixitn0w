@@ -18,8 +18,14 @@ footer {
   color: white;
 }
 
-.formulario {
+.formulario1 {
   padding: 120px;
+  margin-right: 200px;
+  margin-left: -50px;
+}
+
+.formulario2 {
+  padding: 70px;
   margin-right: 80px;
   margin-left: -50px;
 }
@@ -45,4 +51,44 @@ footer {
   color: white;
 }
 
+.profile {
+  margin-right: 200px;
+  margin-left: 200px;
+  background: #d9d9d9;
+}
+
+.stat-val {
+  font-size: 3em;
+  padding-top: 20px;
+  font-weight: bold;
+}
+
+.stat-key {
+  font-size: 1.4em;
+  font-weight: 200;
+}
+
+.cap {
+  text-transform: capitalize;
+}
 /*# sourceMappingURL=style.css.map */
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+  
+#wrapper {
+  flex: 1;
+}
+
+.fix-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  overflow:hidden;
+}
+
+.googlelogin {
+  align-items: center;
+}
