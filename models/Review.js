@@ -13,10 +13,10 @@ const reviewSchema = new Schema ({
     type:Schema.Types.ObjectId,
     ref:"User"
   },
-  project:{
+  project:[{
     type:Schema.Types.ObjectId,
     ref:"Project"
-  }}, {
+  }]}, {
   timestamps:{
             createdAt:"created_at",
             updatedAt:"updated_at"

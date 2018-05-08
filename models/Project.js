@@ -7,12 +7,11 @@ const PassportLocalMongoose = require("passport-local-mongoose");
 const projectSchema = new Schema({
   title:String,
   price: String,
-  rate: Number,
   desc:String,
   photos:[String],
   availability: Boolean,
   user:{
-    type:Schema.Types.ObjectId,
+    type:Schema.Types,
     ref:"User"
 }  }, {
     timestamps:{
