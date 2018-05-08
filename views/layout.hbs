@@ -5,7 +5,7 @@
 <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
      <link rel='stylesheet' href='stylesheets/style.css' />
-     
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
 <body>
 <section class="hero is-dark is-medium">
@@ -24,11 +24,17 @@
         </div>
         <div id="navbarMenuHeroA" class="navbar-menu">
           <div class="navbar-end">
-            <a class="navbar-item is-active" href="/login">
+            <a class="navbar-item is-active"  id="modal-login">
               login
             </a>
-             <a class="navbar-item" href="/signup">
+             <a class="navbar-item" id="modal-signup">
               Sign Up
+            </a>
+            <a class="navbar-item" id="profile" href="/profile">
+              Profile
+            </a>
+            <a class="navbar-item" id="logout" href="/logout">
+              Log out
             </a>
           </div>
         </div>
@@ -40,7 +46,7 @@
     {{{body}}}
 
 <section class="test">
-<footer class="footer">
+<footer class="footer fix-footer">
   <div class="container">
     <div class="content has-text-centered">
       <p>
@@ -51,5 +57,198 @@
   </div>
 </footer>
 </section>    
+
+
+{{!--
+/////////////////////////////////////////
+//////////  MODAL PARA SIGNUP  //////////
+/////////////////////////////////////////
+--}}
+
+
+<div class="modal" id="signup">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Register</p>
+      <button class="delete delete2" aria-label="close"></button>
+    </header>
+    <form action="/signup" method="post">
+    <section class="modal-card-body">
+      <section class="formulario">
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">Name</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <p class="control is-expanded has-icons-left">
+                  <input class="input" type="text" placeholder="Name"  name="name">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control is-expanded has-icons-left">
+                  <input class="input" type="text" placeholder="Last Name" name="lastname">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                </p>
+              </div>            
+              <div class="field">
+                <p class="control is-expanded has-icons-left has-icons-right">
+                  <input class="input" type="email" placeholder="Email" name="username">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <br><br>
+
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">Password</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <p class="control has-icons-left">
+                    <input class="input" type="password" name="password" placeholder="Type your password">
+                    <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br><br>
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">Repeat password</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <p class="control has-icons-left">
+                            <input class="input" type="password" name="password2" placeholder="Type again your password">
+                            <span class="icon is-small is-left"><i class="fas fa-lock"></i></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <br><br>
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">City</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <p class="control has-icons-left">
+                    <input class="input" type="text" name="city" placeholder="Name of your city">
+                    <span class="icon is-small is-left"><i class="fas fa-globe"></i></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br><br>
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">Street</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <p class="control has-icons-left">
+                    <input class="input" type="text" name="street" placeholder="Street Name & Number">
+                    <span class="icon is-small is-left"><i class="far fa-address-card"></i></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br><br>
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">Postal Code</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <p class="control has-icons-left">
+                    <input class="input" type="text" name="postalcode" placeholder="Local Postal Code">
+                    <span class="icon is-small is-left"><i class="fas fa-location-arrow"></i></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br><br>
+      </section>      
+    </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success delete2" type="submit">Save changes</button>
+      </footer>
+    </form>
+  </div>
+</div>
+
+{{!--
+/////////////////////////////////////////
+//////////  MODAL PARA  LOGIN  //////////
+/////////////////////////////////////////
+--}}
+
+
+<div class="modal" id="login">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Log In</p>
+      <button class="delete delete2" aria-label="close"></button>
+    </header>
+    <form action="/login" method="post">
+    <section class="modal-card-body">
+      <section class="formulario">
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">Account</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <p class="control is-expanded has-icons-left has-icons-right">
+                  <input class="input" type="email" placeholder="Type your Email" name="username">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                </p>
+              </div>        
+              <div class="field">
+                <p class="control is-expanded has-icons-left has-icons-right">
+                  <input class="input" type="password" placeholder="Password" name="password">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+      </section>      
+    </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success delete2" type="submit">Log In</button>
+      </footer>
+    </form>
+  </div>
+</div>
+
+
+
+<script src="javascripts/script.js"></script>
   </body>
 </html>

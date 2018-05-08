@@ -1,0 +1,59 @@
+<style>
+#profilePhoto{
+  width:200px;
+  height: :200px;
+}
+</style>
+<br><br>
+          
+<section class="profile">
+<div class='section profile-heading'>
+      <div class='columns is-mobile is-multiline'>
+        <div class='column is-2'>
+          <span class='header-icon user-profile-image'>
+          {{#if profilePhoto}}
+          <img src="{{profilePhoto}}" alt="" >
+          {{else}}
+          <h2>{{name}}</h2>
+          <img  src="https://media.forgecdn.net/avatars/124/768/636424778749237239.jpeg" alt="avatar"/>
+          {{/if}}
+
+          <form class="avatar" action="/profile" method="post" enctype="multipart/form-data">
+            <input type="file" name="profilePhoto" id="file" hidden/>
+            <input type="submit" value="Guardar">
+          </form>
+          </span>
+        </div>
+        <div class='column is-4-tablet is-10-mobile name'>
+          <p>
+            <span class='title is-bold cap'>{{name}} {{lastname}} </span>
+            <br>
+            <a acttion="logout" type="file" name="profilePhoto" class='button is-dark is-outlined avatar' href='#' id='profilePhoto' style='margin: 5px 0' method="post" enctype="multipart/form-data">
+              <input type="file" name="profilePhoto" id="file" hidden/>Update Profile Pic
+            </a>
+              <a href="/logout" type="submit" name="logout" class='button is-dark is-outlined' style='margin: 5px 0' method="get">
+              <input type="submit" name="logout" hidden>Log Out
+            </a>
+            <br>
+          </p>
+          <p class='tagline'>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aspernatur non inventore recusandae harum cumque ex laborum quia, obcaecati iste autem sequi adipisci! Nemo modi nobis ad eaque quam nisi? Quaerat.
+          </p>
+        </div>
+        <div class='column is-2-tablet is-4-mobile has-text-centered'>
+          <p class='stat-val'>30</p>
+          <p class='stat-key'>Projects</p>
+        </div>
+        <div class='column is-2-tablet is-4-mobile has-text-centered'>
+          <p class='stat-val'>10</p>
+          <p class='stat-key'>Reviews</p>
+        </div>
+        <div class='column is-2-tablet is-4-mobile has-text-centered'>
+          <p class='stat-val cap'> {{role}} </p>
+          <p class='stat-key'>Type</p>
+        </div>        
+      </div>
+      <hr>
+</div>
+</section>
+<br><br>
