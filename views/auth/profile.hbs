@@ -1,3 +1,7 @@
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+</head>
 <style>
 #profilePhoto{
   width:200px;
@@ -5,7 +9,7 @@
 }
 </style>
 <br><br>
-          
+
 <section class="profile">
 <div class='section profile-heading'>
       <div class='columns is-mobile is-multiline'>
@@ -54,9 +58,62 @@
           <a class='button is-dark is-outlined avatar'  style='margin: 5px 0'>
             <input type="button" hidden/>Update Profile Info
           </a>        
+        </div>
       </div>
       
       <hr>
 </div>
 </section>
 <br><br>
+<section>
+<form class="" action="/projects/new" method="post" enctype="multipart/form-data">
+<input type="text" name="title" value="title" placeholder="Que necesitas reparar?"><br>
+<textarea name="desc" rows="8" cols="80"></textarea><br>
+<input type="number" name="price" value="price" placeholder="Precio"><br>
+<label>Agrega hasta 5 fotos de tu problema</label><br>
+<input type="file" name="photos" multiple/><br>
+<input type="submit">
+</form>
+
+
+
+<div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Modal title</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <!-- Content ... -->
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button is-success">Save changes</button>
+      <button class="button">Cancel</button>
+    </footer>
+  </div>
+</div>
+<div class="jobstable">
+
+</div>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Solicitud</th>
+      <th scope="col">Usuario</th>
+      <th scope="col">Fecha de creación</th>
+    </tr>
+  </thead>
+  {{#each users}}
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>{{this.project}}</td>
+      <td>{{this.name}}</td>
+      <td>{{this.lastname}}</td>
+      {{/each}}
+
+    </tr>
+  </tbody>
+</table>
