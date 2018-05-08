@@ -24,18 +24,24 @@
         </div>
         <div id="navbarMenuHeroA" class="navbar-menu">
           <div class="navbar-end">
-            <a class="navbar-item is-active"  id="modal-login">
-              login
-            </a>
-             <a class="navbar-item" id="modal-signup">
-              Sign Up
-            </a>
+            {{#if username}}
+            <div class="navbar-item cap">
+              Welcome, {{name}} {{lastname}}
+            </div>
             <a class="navbar-item" id="profile" href="/profile">
               Profile
             </a>
             <a class="navbar-item" id="logout" href="/logout">
               Log out
             </a>
+            {{else}}
+            <a class="navbar-item is-active"  id="modal-login">
+              login 
+            </a>
+             <a class="navbar-item" id="modal-signup">
+              Sign Up
+            </a>            
+            {{/if}}
           </div>
         </div>
       </div>
@@ -216,7 +222,8 @@
     </header>
     <form action="/login" method="post">
     <section class="modal-card-body">
-            <a class="googlelogin" href="/auth/google"><img src="images/google-sign-in.png" alt="Google_login" width="230" ></a>
+      <meta name="google-signin-client_id" content="796743130836-dd1ro4b9d0i1qje3rns5md8kmo84q3a5.apps.googleusercontent.com">
+            <a class="g-signin2" data-onsuccess="onSignIn" ><img src="images/google-sign-in.png" alt="Google_login" width="230" ></a>
       <hr>
       <section class="formulario">
           <div class="field is-horizontal">
@@ -253,6 +260,9 @@
 
 
 
+
 <script src="javascripts/script.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
   </body>
 </html>

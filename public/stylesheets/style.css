@@ -69,10 +69,28 @@ body {
 .fix-footer {
   position: absolute;
   width: 100%;
-  bottom: 0;
+  bottom: 0%;
   overflow: hidden; }
 
 .googlelogin {
   align-items: center; }
+
+.how {
+  margin-top: 20px;
+  background: #d9d9d9;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center; }
+
+.projects {
+  margin-top: 20px;
+  background: #d9d9d9;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */

@@ -11,6 +11,8 @@ const ensureLogin = require("connect-ensure-login");
 
 const Project = require('../models/Project');
 
+
+
 ///////////////////////////////////
 ///////  Autentificacion de sesión  ///////
 ///////////////////////////////////
@@ -55,7 +57,7 @@ router.get('/profile', isNotAuth, (req,res, next)=>{
   })
 
 ///////////////////////////////////
-///////  RUTAS PARA LOGIN  ///////
+///////  RUTAS PARA LOGIN  ////////
 ///////////////////////////////////
 router.get('/logout', (req,res)=>{
     req.logout();
@@ -70,6 +72,8 @@ router.post("/login",
 passport.authenticate("local"), (req, res)=>{
   return res.redirect('/profile')
 });
+
+
 
 ///////////////////////////////////
 ///////  RUTAS PARA SIGNUP  ///////
