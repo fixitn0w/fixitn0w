@@ -12,7 +12,6 @@ const session = require("express-session");
 const flash      = require("connect-flash");
 const passport = require("./helpers/passport");
 const MongoStore = require("connect-mongo")(session);
-const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 const User = require("./models/User");
 
 
@@ -51,40 +50,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-
-/////////////////////////////
-// Google Login Middleware //
-/////////////////////////////
-
-passport.use(new GoogleStrategy({
-  clientID: "796743130836-dd1ro4b9d0i1qje3rns5md8kmo84q3a5.apps.googleusercontent.com",
-  clientSecret: "aoraPuQr9mgMnXCv4YMAqrLG",
-  callbackURL: "/auth/google/callback"
-}, (accessToken, refreshToken, profile, done) => {
-  User.findOne({ googleID: profile.id }, (err, user) => {
-    if (err) {
-      return done(err);
-    }
-    if (user) {
-      return done(null, user);
-    }
-
-    const newUser = new User({
-      googleID: profile.id,
-      username:profile.emails[0].value,
-      name: profile.displayName,
-      email: profile.emails[0].value
-    });
-
-    newUser.save((err) => {
-      if (err) {
-        return done(err);
-      }
-      done(null, newUser);
-    });
-  });
-
-}));
 
 ///////////////////////////////
 // Express View engine setup //
