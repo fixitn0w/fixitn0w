@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 const PassportLocalMongoose = require("passport-local-mongoose");
 
 const userSchema = new Schema({
+//_id: Schema.Types.ObjectId,
 name:String,
 lastname:String,
 username:{
@@ -14,7 +15,8 @@ bio:String,
 city:String,
 projects:[{
   type:Schema.Types.ObjectId,
-  ref:"Project"
+  ref:"Project",
+  _id: Schema.Types.ObjectId
 }],
 street:String,
 postalCode:Number,

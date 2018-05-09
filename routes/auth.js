@@ -8,38 +8,29 @@ const User = require("../models/User");
 const multer = require("multer");
 const uploads = multer({dest: './public/uploads'});
 const ensureLogin = require("connect-ensure-login");
-
+const mongoose = require("mongoose");
 const Project = require('../models/Project');
 
 
 
 
+router.get('/users', (req, res, next)=>{
+  const users= User.find()
+  .populate('projects','title')
+  .then(users=>{
+    res.render('auth/users', {users,project:req.project});
+
+  })
+});
 
 router.get('/jobs', (req, res, next)=>{
   const projects= Project.find()
+  .populate('user','name')
   .then(projects=>{
-    res.render('auth/jobs', {projects});
+    console.log(projects)
+    res.render('auth/jobs', {projects,user:req.user});
 
-  })
-});
-
-
-router.get('/users', (req, res, next)=>{
-  const users= User.find()
-  .then(users=>{
-    res.render('auth/users', {users});
-
-  })
-});
-
-
-
-
-
-
-
-
-
+  })})
 
 ///////////////////////////////////
 ///////  Autentificacion de sesión  ///////
@@ -111,6 +102,7 @@ res.render('auth/signup',{error:req.body.error});
 
 router.post('/signup',
     (req,res)=>{
+    req.body._id = new mongoose.Types.ObjectId();
         User.register(req.body, req.body.password, function(err, user) {
             if (err) return res.send(err);
             const authenticate = User.authenticate();
