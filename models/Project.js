@@ -1,16 +1,16 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const PassportLocalMongoose = require("passport-local-mongoose");
-
-
+const moment = require('moment');
 
 const projectSchema = new Schema({
-  //_id: Schema.Types.ObjectId,
   title:String,
   price: String,
   desc:String,
+  longDesc:String,
   photos:[String],
   availability: Boolean,
+  date: {type: Date, default: Date.now},
   user:{
     type:Schema.Types.ObjectId,
     ref:"User",
@@ -19,7 +19,6 @@ const projectSchema = new Schema({
     timestamps:{
       createdAt:"created_at",
       updatedAt:"updated_at"
-
   }
   })
 

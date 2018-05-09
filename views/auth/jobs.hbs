@@ -3,11 +3,11 @@
 
 </head>
 
-
+<div class="container">
+  <div class="notification">
 <h1>Aqui van los trabajos</h1>
 <article class="tb">
 
-</article>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -21,28 +21,24 @@
 
   <tbody>
     <tr>
-      <th scope="row">1</th>
+      <th scope="row">{{counter @index}}</th>
       <td><a href="/jobs/{{_id}}">{{this.title}}</a></td>
 
       <td>{{user.name}}</td>
-      <td>{{this.desc}}</td>
+      <td>{{moment this.date "HH:mm - DD/MMMM/YYYY"}}</td>
       {{/each}}
 
     </tr>
   </tbody>
 </table>
 </article>
-
-
+</div>
+</div>
 <style>
-
 .table td tr{
-  max-width:200px
+  max-width:400px
 }
-
 </style>
-
-
 
 
 

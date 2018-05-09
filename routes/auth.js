@@ -12,27 +12,29 @@ const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 
 const mongoose = require("mongoose");
 const Project = require('../models/Project');
+const time = require('time')(Date);
+
 
 
 router.get('/jobs/:id', (req,res)=>{
+  const projects= Project.find()
+
   let _id = req.params.id
   Project.findById({_id})
+  .populate('user')
   .then(project=>{
-    res.render("auth/job-detail", {project})
+  console.log(project);
+  res.render("auth/job-detail",{project})
   })
-})
-
-
-
+  })
 
 router.get('/users', (req, res, next)=>{
-  const users= User.find()
-  .populate('projects','title')
-  .then(users=>{
+    const users= User.find()
+    .populate('projects','title')
+    .then(users=>{
     res.render('auth/users', {users,project:req.project});
-
-  })
-});
+    })
+  });
 
 router.get('/jobs', (req, res, next)=>{
   const projects= Project.find()
@@ -68,8 +70,10 @@ function isNotAuth(req,res,next){
 
 router.get('/profile', isNotAuth, (req,res, next)=>{
     User.findById(req.user._id)
+    .populate('projects')
     .then(user=>{
-    res.render('auth/profile', req.user);
+      console.log(user);
+    res.render('auth/profile', {user});
     })
     .catch(e=>next(e))
   })
@@ -143,14 +147,14 @@ passport.use(new GoogleStrategy({
       if (user) {
         return done(null, user);
       }
-  
+
       const newUser = new User({
         googleID: profile.id,
         username: profile.emails[0].value,
         name: profile.displayName,
         email: profile.emails[0].value
       });
-  
+
       newUser.save((err) => {
         if (err) {
           return done(err);
@@ -158,7 +162,7 @@ passport.use(new GoogleStrategy({
         done(null, newUser);
       });
     });
-  
+
   }));
 /*
 //////////////////////////////////////////////

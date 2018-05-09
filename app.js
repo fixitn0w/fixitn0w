@@ -13,6 +13,7 @@ const flash      = require("connect-flash");
 const passport = require("./helpers/passport");
 const MongoStore = require("connect-mongo")(session);
 const User = require("./models/User");
+const moment = require('helper-moment');
 
 
 
@@ -29,6 +30,15 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
+
+// helpers
+hbs.registerHelper("counter", function (index){
+    return index + 1;
+});
+
+
+hbs.registerHelper('moment', require('helper-moment'));
+
 
 //session
 app.use(session({

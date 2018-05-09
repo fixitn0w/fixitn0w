@@ -3,11 +3,8 @@ const Schema = mongoose.Schema;
 
 
 const reviewSchema = new Schema ({
-  active:{
-    type:Boolean,
-    default:true
-  },
-  name: String,
+
+  title: String,
   body: String,
   user:{
     type:Schema.Types.ObjectId,

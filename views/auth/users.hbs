@@ -7,20 +7,22 @@
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Solicitud</th>
+      <th scope="col">Chambita</th>
       <th scope="col">Usuario</th>
       <th scope="col">Fecha de creación</th>
     </tr>
   </thead>
-  {{#each users}}
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>{{project.title}}asdasda</td>
-      <td>{{this.name}}asdasdaa</td>
-      <td>{{this.lastname}}sdasd</td>
+<table>
+  <th>Empleo</th>
+  <th>Usuario</th>
+  <th>Estado</th>
+</table>
+    {{#each users}}
+      <li>{{#each this.projects}}</li>
+      <li>{{this.title}}</li>
+      {{/each}}
+      {{this.name}}
+      {{this.lastname}}
       {{/each}}
 
-    </tr>
-  </tbody>
 </table>
