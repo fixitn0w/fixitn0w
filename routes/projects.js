@@ -3,6 +3,7 @@ const Project = require('../models/Project');
 const User = require('../models/User');
 const Review = require('../models/Review');
 const upload = require('multer')({dest: './public/pics'});
+const mongoose = require("mongoose");
 
 
 
@@ -133,24 +134,6 @@ router.post('/new', upload.array('photos',5),(req,res, next)=>{
     .catch(e=>next(e))
 
 });
-
-
-router.get('/jobs', (req, res, next)=>{
-  const projects= Project.find()
-  .then(projects=>{
-    res.render('auth/jobs', {projects});
-
-  })})
-
-
-router.get('/jobs',(req, res) => {
-  Project.find()
-    .then(projects=>{
-
-      res.render('auth/jobs', {projects});
-    })})
-
-
 
 
 
