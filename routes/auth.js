@@ -34,22 +34,6 @@ router.get('/users', (req, res, next)=>{
 });
 
 
-
-
-
-
-
-/* GET home page */
-router.get('/', (req, res, next) => {
-  res.redirect('index');
-});
-
-module.exports = router;
-
-
-
-
-
 ///////////////////////////////////
 ///////  Autentificacion de sesión  ///////
 ///////////////////////////////////
