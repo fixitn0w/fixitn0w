@@ -90,26 +90,7 @@
   </div>
 </div>
 <div class="jobstable">
-
 </div>
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Solicitud</th>
-      <th scope="col">Usuario</th>
-      <th scope="col">Fecha de creación</th>
-    </tr>
-  </thead>
-  {{#each users}}
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>{{this.project}}</td>
-      <td>{{this.name}}</td>
-      <td>{{this.lastname}}</td>
-      {{/each}}
-
-    </tr>
-  </tbody>
-</table>
+ {{#each user.projects}}
+<li> {{this}}</li>
+{{/each}}
