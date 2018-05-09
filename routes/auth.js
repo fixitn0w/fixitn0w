@@ -40,8 +40,10 @@ router.get('/jobs', (req, res, next)=>{
   .then(projects=>{
     console.log(projects)
     res.render('auth/jobs', {projects,user:req.user});
+    res.render('index', {projects,user:req.user});
 
   })})
+  
 
 ///////////////////////////////////
 ///////  Autentificacion de sesión  ///////
@@ -160,22 +162,6 @@ passport.use(new GoogleStrategy({
     });
   
   }));
-/*
-//////////////////////////////////////////////
-///////  RUTAS PARA SIGNUP CON GOOGLE  ///////
-//////////////////////////////////////////////
-
-    router.get("/auth/google", passport.authenticate("google", {
-        scope: ["https://www.googleapis.com/auth/plus.login",
-                "https://www.googleapis.com/auth/plus.profile.emails.read"]
-      }));
-
-      router.get("/auth/google/callback", passport.authenticate("google", {
-        failureRedirect: "/",
-        successRedirect: "/profile"
-      }));
-*/
-
 
 
 

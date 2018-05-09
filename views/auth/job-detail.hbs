@@ -1,19 +1,42 @@
-<div class="">
-  <a href="/jobs">Regresar</a>
-
-  <h1>que esta pasando</h1>
-  <h1>{{project.title}}</h1>
-  <br>
-    <h1>{{project.username}} {{project.desc}}</h1>
-  <br>
-  {{#each project.photos}}
-  <img src="{{this}}" alt="fotito">
+<br><br>
+<div class="container">
+  <div class="notification">
+    <a href="/jobs" class="button is-link is-outlined">Return</a><br><br>
+<div class="tile is-ancestor">
+  <div class="tile is-4 is-vertical is-parent">
+    <div class="tile is-child box">
+      <p class="title">{{project.title}}</p>
+      <p>
+        <a class="button is-success">Place a Bid</a>
+        <a class="button is-danger">Report this project</a>
+      </p>
+      
+    </div>
+    <div class="tile is-child box">
+      <p class="title">Map</p>
+      <img src="../images/maps.png" alt="map">
+    </div>
+  </div>
+  <div class="tile is-parent">
+    <div class="tile is-child box">
+      <p class="title">Project Description</p>
+      <p>{{project.desc}}</p>
+     
+      <p> 
+        {{#each project.photos}}
+  <img class="imgDesc" src="{{this}}" alt="fotito">
   {{/each}}
-
+  </p>
+    </div>
+  </div>
 </div>
 
+</div>
+</div>
+
+
 <style>
-img{
+.imgDesc{
   width:300px;
   height:300px
 }
