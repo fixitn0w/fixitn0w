@@ -19,7 +19,6 @@ router.get('/', (req, res, next) => {
   res.render('index');
 });
 
-module.exports = router;
 
 
 //////////////////////////////////////////////
@@ -35,3 +34,5 @@ router.get("/auth/google/callback", passport.authenticate("google", {
   failureRedirect: "/login",
   successRedirect: "/profile"
 }));
+
+module.exports = router;

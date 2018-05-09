@@ -14,6 +14,42 @@ const Project = require('../models/Project');
 
 
 
+
+
+router.get('/jobs', (req, res, next)=>{
+  const projects= Project.find()
+  .then(projects=>{
+    res.render('auth/jobs', {projects});
+
+  })
+});
+
+
+router.get('/users', (req, res, next)=>{
+  const users= User.find()
+  .then(users=>{
+    res.render('auth/users', {users});
+
+  })
+});
+
+
+
+
+
+
+
+/* GET home page */
+router.get('/', (req, res, next) => {
+  res.redirect('index');
+});
+
+module.exports = router;
+
+
+
+
+
 ///////////////////////////////////
 ///////  Autentificacion de sesión  ///////
 ///////////////////////////////////
@@ -139,7 +175,7 @@ passport.use(new GoogleStrategy({
         scope: ["https://www.googleapis.com/auth/plus.login",
                 "https://www.googleapis.com/auth/plus.profile.emails.read"]
       }));
-      
+
       router.get("/auth/google/callback", passport.authenticate("google", {
         failureRedirect: "/",
         successRedirect: "/profile"

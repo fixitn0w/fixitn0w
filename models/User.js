@@ -12,6 +12,10 @@ username:{
 profilePhoto:String,
 bio:String,
 city:String,
+projects:[{
+  type:Schema.Types.ObjectId,
+  ref:"Project"
+}],
 street:String,
 postalCode:Number,
 coord:[Number],
