@@ -18,10 +18,12 @@
     </tr>
   </thead>
   {{#each projects}}
+
   <tbody>
     <tr>
       <th scope="row">1</th>
-      <td>{{this.title}}</td>
+      <td><a href="/jobs/{{_id}}">{{this.title}}</a></td>
+
       <td>{{user.name}}</td>
       <td>{{this.desc}}</td>
       {{/each}}

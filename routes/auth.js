@@ -12,6 +12,15 @@ const mongoose = require("mongoose");
 const Project = require('../models/Project');
 
 
+router.get('/jobs/:id', (req,res)=>{
+  let _id = req.params.id
+  Project.findById({_id})
+  .then(project=>{
+    res.render("auth/job-detail", {project})
+  })
+})
+
+
 
 
 router.get('/users', (req, res, next)=>{
