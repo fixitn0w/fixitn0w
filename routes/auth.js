@@ -65,11 +65,9 @@ function isNotAuth(req,res,next){
 
 
 router.get('/profile', isNotAuth, (req,res, next)=>{
-  const projects= Project.find()
     User.findById(req.user._id)
-    .populate('user','name')
     .then(user=>{
-    res.render('auth/profile', {projects,user});
+    res.render('auth/profile', req.user);
     })
     .catch(e=>next(e))
   })
