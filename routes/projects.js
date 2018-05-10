@@ -4,7 +4,7 @@ const User = require('../models/User');
 const Review = require('../models/Review');
 const upload = require('multer')({dest: './public/pics'});
 const mongoose = require("mongoose");
-
+const uploads = require('../helpers/cloudinary');
 
 
 /*
@@ -116,10 +116,10 @@ router.get('/', (req,res)=>{
     .catch(e=>next(e));
 })*/
 
-router.post('/new', upload.array('photos',5),(req,res, next)=>{
+router.post('/new', uploads.array('photos',5),(req,res, next)=>{
     req.body.photos = [];
     for(let pic of req.files){
-        req.body.photos.push('/pics/' + pic.filename);
+        req.body.photos.push(pic.url);
     }
     req.body.user = req.user._id;
     console.log(req.body);
