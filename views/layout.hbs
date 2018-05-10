@@ -26,9 +26,9 @@
         </div>
         <div id="navbarMenuHeroA" class="navbar-menu">
           <div class="navbar-end">
-            {{#if username}}
+            {{#if user.name}}
             <div class="navbar-item cap">
-              Welcome, {{name}} {{lastname}}
+              Welcome, {{user.name}} {{user.lastname}}
             </div>
             <a class="navbar-item" id="profile" href="/profile">
               Profile
